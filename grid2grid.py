@@ -109,7 +109,7 @@ if __name__ == "__main__":
 
     while True:
         for counter in range(len(joints[(config['grids']['names'][0])]['pick'])):
-            joints_home = config['joints']['home']
+            joints_home = config['EVA']['home']
             joints_pick = joints[config['grids']['names'][0]]['pick'][counter]
             joints_drop = joints[config['grids']['names'][1]]['pick'][counter]
             joints_pick_hover = joints[config['grids']['names'][0]]['hover'][counter]

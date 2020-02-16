@@ -2,8 +2,8 @@
 
 EVA:
   comm:
-#    host: "192.168.0.100"
-#    token: "1cd9853842b26eae921b297c29eb33735639f4a2"
+#    host: "0.0.0.0"
+#    token: "abcd1234"
     host: "http://office.automata.tech:4242"
     token: "d3ebc4d086afca85560b6c8a2ac969750b3ad1b7"
   end_effector:
@@ -16,6 +16,13 @@ EVA:
   hover_height: 0.1   # elevation of idle z axis wrt to the object [m]
   work_radius: 0.6    # Eva's workspace radius [m]
   base_plate: 0.132   # Eva's base-plate dimension [m]
+  home:               # joints for home position [rad]
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
+    - 0
 
 grids:
   names:
@@ -81,10 +88,3 @@ joints:
     - -0.012847481
     - -1.3178256
     - -0.2752621
-  mid_drop:
-    - -0.9324012
-    - -1.0720936
-    - -1.2877203
-    - -0.0071907546
-    - -0.7813953
-    - 0
