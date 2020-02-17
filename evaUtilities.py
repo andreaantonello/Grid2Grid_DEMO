@@ -90,7 +90,7 @@ def plot_grids(grid_x, grid_y, grid_z, ax_all, _grid_iter):
     ax1.arrow(0, 0, 200, 0, head_width=10, head_length=10, fc='red', ec='red', linewidth=2, alpha=0.6)
     ax1.arrow(0, 0, 0, 200, head_width=10, head_length=10, fc='green', ec='green', linewidth=2, alpha=0.6)
     ax1.plot(0, 0, 'o', markersize=5, color='blue', alpha=0.6)
-    ax1.plot(grid_x, grid_y, 'o', color='grey', markersize=2)
+    # ax1.plot(grid_x, grid_y, 'o', color='grey', markersize=2)
     ax1.plot(grid_x[0][0], grid_y[0][0], '*', markersize=10, color='green')  # First point
     ax1.plot(grid_x[-1][-1], grid_y[-1][-1], 'X', markersize=8, color='red')  # Last point
     ax1.add_collection(grid_footprint_2d)

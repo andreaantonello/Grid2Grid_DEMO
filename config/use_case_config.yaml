@@ -1,22 +1,22 @@
 # SETUP YAML file for Grid-to-grid demo - February 2020
 
 EVA:
+  work_radius: 0.6    # Eva's workspace radius [m] - DO NOT CHANGE THIS PARAMETER
+  base_plate: 0.132   # Eva's base-plate dimension [m] - DO NOT CHANGE THIS PARAMETER
   comm:
 #    host: "0.0.0.0"
 #    token: "abcd1234"
-    host: "http://office.automata.tech:4242"
-    token: "d3ebc4d086afca85560b6c8a2ac969750b3ad1b7"
+    host: "http://office.automata.tech:4242" # USER DEFINED
+    token: "d3ebc4d086afca85560b6c8a2ac969750b3ad1b7" # USER DEFINED
   end_effector:
-    payload: 0        # payload [kg]
-    length: 88        # length of tool [mm]
-    offset:           # ee offset in ee-frame  [m]
+    payload: 0        # payload [kg] - USER DEFINED
+    length: 88        # length of tool [mm] - USER DEFINED
+    offset:           # ee offset in ee-frame  [m] - USER DEFINED
       - 0
       - 0
       - 0
-  hover_height: 0.1   # elevation of idle z axis wrt to the object [m]
-  work_radius: 0.6    # Eva's workspace radius [m]
-  base_plate: 0.132   # Eva's base-plate dimension [m]
-  home:               # joints for home position [rad]
+  hover_height: 0.1   # elevation of idle z axis wrt to the object [m] - USER DEFINED
+  home:               # joints for home position [rad] - USER DEFINED
     - 0
     - 0
     - 0
@@ -25,66 +25,54 @@ EVA:
     - 0
 
 grids:
-  names:
+  names:          # DO NOT CHANGE THIS PARAMETER
     - 'A'
     - 'B'
-  names_verbose:  # object names
+  names_verbose:  # object names - USER DEFINED
     A: 'Origin'
     B: 'Target'
-  counter:        # initial object counter
-    A: 0
-    B: 0
-  row:            # grid rows, [#]
+  row:            # grid rows, [#] - USER DEFINED
     A: 2
+    B: 2
+  col:            # grid cols, [#] - USER DEFINED
+    A: 3
     B: 3
-  col:            # grid cols, [#]
-    A: 2
-    B: 3
-  row_pitch:      # rows pitch [mm]
+  row_pitch:      # rows pitch [mm] - USER DEFINED
     A: 20
     B: 20
-  col_pitch:      # cols pitch [mm]
-    A: 30
-    B: 30
-  x0:             # grid angle, x [mm]
+  col_pitch:      # cols pitch [mm] - USER DEFINED
+    A: 20
+    B: 20
+  x0:             # grid angle, x [mm] - USER DEFINED
     A: 400
     B: 400
-  y0:             # grid angle, y [mm]
-    A: 100
-    B: -60
-  angle:          # grid orientation, [deg]
+  y0:             # grid angle, y [mm] - USER DEFINED
+    A: -100
+    B: -100
+  angle:          # grid orientation, [deg] - USER DEFINED
+    A: 45
+    B: 45
+  angle_pickup:   # additional pick-up angle, [deg] - USER DEFINED
     A: 0
     B: 0
-  angle_pickup:   # additional pick-up angle, [deg]
-    A: 0
-    B: 0
-  surface:        # surf height of grid, [mm]
+  surface:        # surf height of grid, [mm] - USER DEFINED
     A: 30
     B: 70
-  object:         # object height, [mm]
+  object:         # object height, [mm] - USER DEFINED
     A: 0
     B: 0
   guess:
-    A:            # joints grid guess, pick-up
+    A:            # joints grid guess, pick-up [rad] - USER DEFINED
       - 0
       - -0.97738438
       - -1.71042267
       - 0
       - -0.43633231
       - 0
-    B:            # joints guess, drop-off
+    B:            # joints guess, drop-off [rad] - USER DEFINED
       - 0
       - -0.97738438
       - -1.71042267
       - 0
       - -0.43633231
       - 0
-
-joints:
-  home:        # joints for home position [rad]
-    - -0.47919187
-    - 0.9895437
-    - -2.63661
-    - -0.012847481
-    - -1.3178256
-    - -0.2752621
