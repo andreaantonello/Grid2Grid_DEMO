@@ -36,12 +36,12 @@ __[evaUtilities.py](evaUtilities.py)__
 
 This file contains the auxiliary functions needed by the main __[grid2grid.py](grid2grid.py)__ script 
 (frame of reference handling, angle and quaternion conversion, forward and inverse kinematics, plotting). 
-You **should not** changed this file.
+You **should not** change this file.
 
 
 __[config/config_manager.py](config/config_manager.py)__
 
-This file loads the YAML parameter file. You **should not** changed this file.
+This file loads the YAML parameter file. You **should not** change this file.
 
 __[config/use_case_config.yaml](config/use_case_config.yaml)__
 
@@ -51,8 +51,8 @@ In detailed, you will have to input:
 - EVA setup (host, token, home position)
 - grids characteristic (explained in detail in the next section)
 
-**NOTE: without changing these parameters, EVA will automatically set its home position 
-in the upright configuration, j = [0, 0, 0, 0, 0, 0].**
+**NOTE**: without changing these parameters, EVA will automatically set its home position 
+in the upright configuration, ```j = [0, 0, 0, 0, 0, 0].```
 
 
 ## Parameters description
