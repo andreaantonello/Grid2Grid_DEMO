@@ -22,7 +22,7 @@ Requirements to run this script as is:
 
 ## Project description
 
-__[main.py](grid2grid.py)__
+__[grid2grid.py](grid2grid.py)__
 
 This file is the main script and contains the logic behind the creation of the two grids. 
 This file also creates the complete grid-to-grid tool-path, 
@@ -34,7 +34,7 @@ the pickup and the drop-off points (i.e. inspection, measuring, filling, etc.).
 
 __[evaUtilities.py](evaUtilities.py)__
 
-This file contains the auxiliary functions needed by the main **grid2grid.py** script 
+This file contains the auxiliary functions needed by the main __[grid2grid.py](grid2grid.py)__ script 
 (frame of reference handling, angle and quaternion conversion, forward and inverse kinematics, plotting). 
 You **should not** changed this file.
 
@@ -84,13 +84,28 @@ measured with respect to the frame depicted in _Fig. 1_, expressed in millimeter
 measured with respect to the frame depicted in _Fig. 1_, expressed in millimeters. This will be the first object to be picked up.
 - **angle** [type: float, unit: deg]: this is the rotation of the grid with respect to the frame depicted in _Fig. 1_, measured in degrees. 
 _Fig. 2_ depicts the two frames of reference and the definition of this angle.
-- **angle_pickup** [type: float, unit: deg]
-- **surface** [type: float, unit: mm]
-- **object** [type: float, >0, unit: mm]
-- **guess** [type: list, unit: rad]
+- **angle_pickup** [type: float, unit: deg]: this is the angle with which the end effector will pick up the object, with respect
+to the above defined grid reference frame. By default, this is set to 0.
+- **surface** [type: float, unit: mm]: this is the height of the grid surface with respect to Eva's base-plate. 
+If positive, the grid plane is higher than Eva's mounting surface. If negative, the grid's plane is lower than Eva's mounting surface .
+- **object** [type: float, >0, unit: mm]: this is _z-axis_ length of the object, to allow the end-effector to correctly approach the object 
+- **guess** [type: list, unit: rad]: this contains a 6 elements joints list used to solve the inverse kinematics. 
+This is critical to the success of the algorithm computations: please back-drive the robot in the ball-park of 
+the grid centre, and use the values provided by Choreograph as the guess (make sure to appropriately convert them into radians). 
+This operation **must** be performed for each of the two grids.
 
 ![Fig. 2 - Grid parameters definition](readme_images/grid_def.png)
 
 
-Plotting: 
-After the definition of the grids, i
+## Parameters description: 
+The script contains a graphical simulator to visualise the computed grids. This mode can be turned on and off
+by setting the _plot_on_off_ variable to **True** or **False**, respectively.
+
+**NOTE: It is highly recommended to turn this function on when the use-case is in the prototyping phase, 
+ in order to avoid damages due to incorrect user entries.**
+ 
+ This tool provides both a 2D and a 3D depiction of 
+ the defined grids, and allows zooming in and rotating the 3D views for verification (see _Fig. 3_). The start and the cross at the grid corners 
+ represent the initial and final grid points, respectively; arrows will 
+ indicate the order of object pick-up and drop-off. 
+![Fig. 3 - Visual 2D/3D tool](readme_images/visual.png)

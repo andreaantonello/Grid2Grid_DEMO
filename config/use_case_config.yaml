@@ -32,32 +32,32 @@ grids:
     A: 'Origin'
     B: 'Target'
   row:            # grid rows, [#] - USER DEFINED
-    A: 2
-    B: 2
+    A: 4
+    B: 3
   col:            # grid cols, [#] - USER DEFINED
     A: 3
-    B: 3
+    B: 4
   row_pitch:      # rows pitch [mm] - USER DEFINED
-    A: 20
-    B: 20
+    A: 50
+    B: 80
   col_pitch:      # cols pitch [mm] - USER DEFINED
-    A: 20
-    B: 20
+    A: 80
+    B: 80
   x0:             # grid angle, x [mm] - USER DEFINED
-    A: 400
-    B: 400
-  y0:             # grid angle, y [mm] - USER DEFINED
-    A: -100
+    A: 350
     B: -100
+  y0:             # grid angle, y [mm] - USER DEFINED
+    A:  200
+    B: -350
   angle:          # grid orientation, [deg] - USER DEFINED
-    A: 45
-    B: 45
+    A: 30
+    B: -90
   angle_pickup:   # additional pick-up angle, [deg] - USER DEFINED
     A: 0
     B: 0
   surface:        # surf height of grid, [mm] - USER DEFINED
-    A: 30
-    B: 70
+    A: 40
+    B: 150
   object:         # object height, [mm] - USER DEFINED
     A: 0
     B: 0
@@ -70,7 +70,7 @@ grids:
       - -0.43633231
       - 0
     B:            # joints guess, drop-off [rad] - USER DEFINED
-      - 0
+      - -1.4
       - -0.97738438
       - -1.71042267
       - 0

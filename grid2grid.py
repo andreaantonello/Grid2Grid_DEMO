@@ -86,6 +86,12 @@ class EvaGrids:
                     plot_grids(_grid_x, _grid_y, _grid_z, ax, grid_iter)
         if self.plot:
             plt.show()
+        move_eva = input("Please verify the correctness of grid placement before continuing "
+                         "(to do this, set plot_on_off variable to True and verify grids placement from the plots).\n"
+                         "Proceed (this will move the robot)? yes/no\n")
+        if 'yes' not in move_eva:
+            raise Exception('\n\n\nScript aborted by user: \n - set the plot_on_off variable to True\n '
+                            '- run the script again\n - verify grids placement from the plots ')
         return _joints
 
 
@@ -102,6 +108,7 @@ if __name__ == "__main__":
     plot_on_off = True
     eva_box = EvaGrids(eva, plot_on_off)
     joints = eva_box.get_grid_points(config['grids']['names'])
+
 
     # # Go home before starting
     # with eva.lock():

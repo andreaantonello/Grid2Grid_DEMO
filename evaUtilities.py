@@ -1,12 +1,12 @@
 # Dr. Andrea Antonello, 2020. Automata
 import matplotlib.pyplot as plt
 from config.config_manager import load_use_case_config
-from matplotlib.patches import FancyArrowPatch
 import numpy as np
 from mpl_toolkits.mplot3d import proj3d
-from matplotlib.patches import Rectangle, Circle, FancyBboxPatch
+from matplotlib.patches import Rectangle, Circle, FancyBboxPatch, FancyArrowPatch
 import mpl_toolkits.mplot3d.art3d as art3d
 import mpl_toolkits.mplot3d as mp3d
+import matplotlib.patches as mpatches
 
 
 class Arrow3D(FancyArrowPatch):
@@ -94,6 +94,9 @@ def plot_grids(grid_x, grid_y, grid_z, ax_all, _grid_iter):
     ax1.plot(grid_x[0][0], grid_y[0][0], '*', markersize=10, color='green')  # First point
     ax1.plot(grid_x[-1][-1], grid_y[-1][-1], 'X', markersize=8, color='red')  # Last point
     ax1.add_collection(grid_footprint_2d)
+    blue_patch = mpatches.Patch(color='blue', label='Origin grid', alpha=0.4)
+    red_patch = mpatches.Patch(color='red', label='Target grid', alpha=0.4)
+    plt.legend(handles=[blue_patch, red_patch])
 
     for i in range(config['grids']['row'][_grid_iter]):
         for j in range(config['grids']['col'][_grid_iter]):
@@ -110,9 +113,9 @@ def plot_grids(grid_x, grid_y, grid_z, ax_all, _grid_iter):
                         (grid_x[0][-1], grid_y[0][-1], grid_z[0][0])]
     grid_footprint_3d = mp3d.art3d.Poly3DCollection([grid_vertices_3d], color=grid_color[_grid_iter], alpha=0.3)
 
-    a = Arrow3D([0, 0], [0, arr_length], [0, 0], mutation_scale=5, lw=1, arrowstyle="-|>", color="g")
-    b = Arrow3D([0, arr_length], [0, 0], [0, 0], mutation_scale=5, lw=1, arrowstyle="-|>", color="r")
-    c = Arrow3D([0, 0], [0, 0], [0, arr_length], mutation_scale=5, lw=1, arrowstyle="-|>", color="b")
+    a = Arrow3D([0, arr_length], [0, 0], [0, 0], mutation_scale=5, lw=1, arrowstyle="-|>", color="r")
+    b = Arrow3D([0, 0], [0, arr_length], [0, 0], mutation_scale=5, lw=1, arrowstyle="-|>", color="g")
+    c = Arrow3D([0, 0], [0, 0], [0, 0.5*arr_length], mutation_scale=5, lw=1, arrowstyle="-|>", color="b")
 
     ax2.set_facecolor('white')
     ax2.add_collection3d(base_plate_shape_3d)
@@ -121,7 +124,7 @@ def plot_grids(grid_x, grid_y, grid_z, ax_all, _grid_iter):
     ax2.add_artist(a), ax2.add_artist(b), ax2.add_artist(c)
     ax2.xaxis.pane.set_edgecolor('black'), ax2.yaxis.pane.set_edgecolor('black'), ax2.zaxis.pane.set_edgecolor('black')
     ax2.set_xlabel('x [mm]'), ax2.set_ylabel('y [mm]'), ax2.set_zlabel('z [mm]')
-    ax2.set_xlim(-box_side, box_side), ax2.set_ylim(-box_side, box_side), ax2.set_zlim(0, box_side)
+    ax2.set_xlim(-box_side, box_side), ax2.set_ylim(-box_side, box_side), ax2.set_zlim(0, 0.5*box_side)
     ax2.add_collection3d(grid_footprint_3d)
     ax2.scatter(grid_x, grid_y, grid_z, 'o', s=2, color='black')
     ax2.scatter(grid_x[0][0], grid_y[0][0], grid_z[0][0], '*', s=10, color='green')  # First point
