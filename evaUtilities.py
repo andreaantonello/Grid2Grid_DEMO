@@ -1,4 +1,3 @@
-# Dr. Andrea Antonello, 2020. Automata
 import matplotlib.pyplot as plt
 from config.config_manager import load_use_case_config
 import numpy as np

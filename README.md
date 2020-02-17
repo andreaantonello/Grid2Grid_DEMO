@@ -1,7 +1,7 @@
 # Grid-to-grid pick and place application 
 This example shows how to set-up a grid to grid tool-path for pick and place use-cases. 
 For any questions or comments, 
-please email Andrea Antonello at __[andrea@automata.tech]()__.
+please email Dr. Andrea Antonello at __[andrea@automata.tech]()__.
 
 
 ## Requirements
@@ -24,7 +24,7 @@ Requirements to run this script as is:
 
 ## Project description
 
-__[grid2grid.py](grid2grid.py)__
+__[main.py](main.py)__
 
 This file is the main script and contains the logic behind the creation of the two grids. 
 This file also creates the complete grid-to-grid tool-path, 
@@ -36,7 +36,7 @@ the pickup and the drop-off points (i.e. inspection, measuring, filling, etc.).
 
 __[evaUtilities.py](evaUtilities.py)__
 
-This file contains the auxiliary functions needed by the main __[grid2grid.py](grid2grid.py)__ script 
+This file contains the auxiliary functions needed by the main __[main.py](main.py)__ script 
 (frame of reference handling, angle and quaternion conversion, forward and inverse kinematics, plotting). 
 You **should not** change this file.
 

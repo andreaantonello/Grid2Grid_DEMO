@@ -1,4 +1,3 @@
-# Dr. Andrea Antonello, 2020. Automata
 from evasdk import Eva
 from evaUtilities import *
 from progress.bar import *
