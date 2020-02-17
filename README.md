@@ -64,7 +64,7 @@ This examples assumes you have familiarity with reference frames.
 
 Eva's base reference frame is depicted in _Fig. 1_: all the definitions for the grids 
 will be referred to Eva's base frame.
-![Fig. 1 - Automata Eva's base reference frame](readme_images/eva_base.png)
+![Fig. 1 - Automata Eva's base reference frame](readme_images/eva_frame.png)
  
 In order to illustrate how the grids are defined, we will use the nomenclature of the YAML file
 dictionary (__[config/use_case_config.yaml](config/use_case_config.yaml)__) and the help of some illustrations. 
