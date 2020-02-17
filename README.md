@@ -1,5 +1,6 @@
 # Grid-to-grid pick and place application 
-This example shows how to set-up a grid to grid toolpath for pick and place use-cases.
+This example shows how to set-up a grid to grid tool-path for pick and place use-cases. For any questions or comments, 
+please email Andrea Antonello at __[andrea@automata.tech]()__
 
 
 ## Requirements
@@ -7,9 +8,9 @@ This example shows how to set-up a grid to grid toolpath for pick and place use-
 This example assumes you have two planar grids. The number of columns, rows, their respective pitch, 
 the relative orientation, the objects' pickup angles and the grid's _z axis_ elevation are fully customizable.
 
-In this version, we assumes that the grid planes are parallel to Eva's XY plane (that is, they are in an horizontal 
+In this version, we assumes that the grid planes are parallel to Eva's _xy_ plane (that is, they are in an horizontal 
 absolute plane). The rows and the columns, in addition, have to be perpendicular to each other. Finally, the number of 
-points of the first grid (number of columns * number of rows) needs to be equal or smaller than the points 
+points of the first grid (```number of columns``` * ```number of rows```) needs to be equal or smaller than the points 
 of the second grid; if not, the first grid can not be correctly completed.
 
 
@@ -52,7 +53,7 @@ In detailed, you will have to input:
 - grids characteristic (explained in detail in the next section)
 
 **NOTE**: without changing these parameters, EVA will automatically set its home position 
-in the upright configuration, ```j = [0, 0, 0, 0, 0, 0].```
+in the upright configuration, ```joints_home = [0, 0, 0, 0, 0, 0].```
 
 
 ## Parameters description
@@ -68,7 +69,7 @@ will be referred to Eva's base frame.
  
 In order to illustrate how the grids are defined, we will use the nomenclature of the YAML file
 dictionary (__[config/use_case_config.yaml](config/use_case_config.yaml)__) and the help of some illustrations. 
-The YAML contains two entries for each tag, one for grid 'A', and one for grid 'B'.
+The YAML contains two entries for each tag, one for ```grid A```, and one for ```grid B```.
 
 In detail, going through the parameters of the **[grids]** tag:
 
@@ -103,7 +104,7 @@ built-in solver ```eva.calc_inverse_kinematics()```.
 
 ## Visualization tool: 
 The script contains a graphical simulator to visualise the computed grids. This mode can be turned on and off
-by setting the _plot_on_off_ variable to **True** or **False**, respectively.
+by setting the ```plot_on_off``` variable to ```True``` or ```False```, respectively.
 
 **NOTE: It is highly recommended to turn this function on when the use-case is in the prototyping phase, 
  in order to avoid damages due to incorrect user entries.**
