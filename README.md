@@ -94,10 +94,14 @@ This is critical to the success of the algorithm computations: please back-drive
 the grid centre, and use the values provided by Choreograph as the guess (make sure to appropriately convert them into radians). 
 This operation **must** be performed for each of the two grids.
 
+**NOTE**: by default, the inverse kinematics solver for this use-case assumes that the end-effector tool-plate 
+is parallel to the horizontal _xy_ plane. That is, the orientation quaternion is set to ```q = [0, 0, 1, 0]```. 
+In the unlikely case that another orientation is desired, the user can modify the IK solver by using the general
+built-in solver ```eva.calc_inverse_kinematics()```.
 ![Fig. 2 - Grid parameters definition](readme_images/grid_def.png)
 
 
-## Parameters description: 
+## Visualization tool: 
 The script contains a graphical simulator to visualise the computed grids. This mode can be turned on and off
 by setting the _plot_on_off_ variable to **True** or **False**, respectively.
 

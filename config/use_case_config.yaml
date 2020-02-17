@@ -4,13 +4,11 @@ EVA:
   work_radius: 0.6    # Eva's workspace radius [m] - DO NOT CHANGE THIS PARAMETER
   base_plate: 0.132   # Eva's base-plate dimension [m] - DO NOT CHANGE THIS PARAMETER
   comm:
-#    host: "0.0.0.0"
-#    token: "abcd1234"
-    host: "http://office.automata.tech:4242" # USER DEFINED
-    token: "d3ebc4d086afca85560b6c8a2ac969750b3ad1b7" # USER DEFINED
+    host: "0.0.0.0"   # USER DEFINED
+    token: "abcd1234" # USER DEFINED
   end_effector:
     payload: 0        # payload [kg] - USER DEFINED
-    length: 88        # length of tool [mm] - USER DEFINED
+    length: 80        # length of tool [mm] - USER DEFINED
     offset:           # ee offset in ee-frame  [m] - USER DEFINED
       - 0
       - 0
@@ -25,54 +23,54 @@ EVA:
     - 0
 
 grids:
-  names:          # DO NOT CHANGE THIS PARAMETER
+  names:          # DO NOT CHANGE THESE PARAMETERS
     - 'A'
     - 'B'
   names_verbose:  # object names - USER DEFINED
     A: 'Origin'
     B: 'Target'
   row:            # grid rows, [#] - USER DEFINED
-    A: 4
-    B: 3
+    A: 0
+    B: 0
   col:            # grid cols, [#] - USER DEFINED
-    A: 3
-    B: 4
+    A: 0
+    B: 0
   row_pitch:      # rows pitch [mm] - USER DEFINED
-    A: 50
-    B: 80
+    A: 0
+    B: 0
   col_pitch:      # cols pitch [mm] - USER DEFINED
-    A: 80
-    B: 80
+    A: 0
+    B: 0
   x0:             # grid angle, x [mm] - USER DEFINED
-    A: 350
-    B: -100
+    A: 0
+    B: 0
   y0:             # grid angle, y [mm] - USER DEFINED
-    A:  200
-    B: -350
+    A: 0
+    B: 0
   angle:          # grid orientation, [deg] - USER DEFINED
-    A: 30
-    B: -90
+    A: 0
+    B: 0
   angle_pickup:   # additional pick-up angle, [deg] - USER DEFINED
     A: 0
     B: 0
   surface:        # surf height of grid, [mm] - USER DEFINED
-    A: 40
-    B: 150
+    A: 0
+    B: 0
   object:         # object height, [mm] - USER DEFINED
     A: 0
     B: 0
   guess:
     A:            # joints grid guess, pick-up [rad] - USER DEFINED
       - 0
-      - -0.97738438
-      - -1.71042267
       - 0
-      - -0.43633231
+      - 0
+      - 0
+      - 0
       - 0
     B:            # joints guess, drop-off [rad] - USER DEFINED
-      - -1.4
-      - -0.97738438
-      - -1.71042267
       - 0
-      - -0.43633231
+      - 0
+      - 0
+      - 0
+      - 0
       - 0

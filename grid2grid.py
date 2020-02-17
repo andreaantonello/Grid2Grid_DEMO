@@ -109,10 +109,9 @@ if __name__ == "__main__":
     eva_box = EvaGrids(eva, plot_on_off)
     joints = eva_box.get_grid_points(config['grids']['names'])
 
-
-    # # Go home before starting
-    # with eva.lock():
-    #     eva.control_go_to(config['joints']['home'])
+    # Go home before starting
+    with eva.lock():
+        eva.control_go_to(config['joints']['home'])
 
     while True:
         for counter in range(len(joints[(config['grids']['names'][0])]['pick'])):
@@ -122,14 +121,15 @@ if __name__ == "__main__":
             joints_pick_hover = joints[config['grids']['names'][0]]['hover'][counter]
             joints_drop_hover = joints[config['grids']['names'][1]]['hover'][counter]
 
-            joints_operation_A = joints_home
+            # USER DEFINED WAY-POINTS
+            joints_operation_A = []
             joints_operation_B = []
             joints_operation_C = []
 
             tool_path_machine_vision = {
                 "metadata": {
                     "version": 2,
-                    "default_max_speed": 0.5,
+                    "default_max_speed": 0.1,
                     "next_label_id": 7,
                     "payload": 0,
                     "analog_modes": {"i0": "voltage", "i1": "voltage", "o0": "voltage", "o1": "voltage"}
@@ -158,23 +158,6 @@ if __name__ == "__main__":
                 ]
             }
             with eva.lock():
-                # eva.control_wait_for_ready()
+                eva.control_wait_for_ready()
                 eva.toolpaths_use(tool_path_machine_vision)
-                # eva.control_run(loop=1, mode="automatic")
-        time.wait(10)
-
-
-# # # Go home before starting
-#     # with eva.lock():
-#     #     eva.control_go_to(config['joints']['home'])
-#
-#     while True:
-#         time.sleep(0.1)
-#         stop_demo = True
-#         # stop_demo = eva.gpio_get("d0", "input")
-#         if stop_demo is False:
-#             # with eva.lock():
-#                 # if eva.gpio_get("d1", "output"):
-#                 #     eva.gpio_set("d1", False)
-#
-#             # Extract points from computed grid-to-grid
+                eva.control_run(loop=1, mode="automatic")
