@@ -1,6 +1,7 @@
 # Grid-to-grid pick and place application 
-This example shows how to set-up a grid to grid tool-path for pick and place use-cases. For any questions or comments, 
-please email Andrea Antonello at __[andrea@automata.tech]()__
+This example shows how to set-up a grid to grid tool-path for pick and place use-cases. 
+For any questions or comments, 
+please email Andrea Antonello at __[andrea@automata.tech]()__.
 
 
 ## Requirements
