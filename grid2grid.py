@@ -1,5 +1,4 @@
 # Dr. Andrea Antonello, 2020. Automata
-import time
 from evasdk import Eva
 from evaUtilities import *
 from progress.bar import *
