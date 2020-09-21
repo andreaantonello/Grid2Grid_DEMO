@@ -4,8 +4,10 @@ EVA:
   work_radius: 0.6    # Eva's workspace radius [m] - DO NOT CHANGE THIS PARAMETER
   base_plate: 0.132   # Eva's base-plate dimension [m] - DO NOT CHANGE THIS PARAMETER
   comm:
-    host: "172.16.16.2"   # USER DEFINED
-    token: "b18b70c8-f608-4404-825a-ffbb258b5775" # USER DEFINED
+#    host: "172.16.16.2"   # USER DEFINED
+#    token: "b18b70c8-f608-4404-825a-ffbb258b5775" # USER DEFINED
+    host: "http://office.automata.tech:4242"   # USER DEFINED
+    token: "05026024ee7fb90a037cd7e76021adc6347566ca" # USER DEFINED
   end_effector:
     payload: 0        # payload [kg] - USER DEFINED
     length: 139       # length of tool [mm] - USER DEFINED

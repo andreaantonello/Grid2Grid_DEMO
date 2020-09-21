@@ -13,7 +13,7 @@ if __name__ == "__main__":
     eva = Eva(host, token)
 
     # Compute grid points and robot joints
-    eva_box = EvaGrids(eva, config, show_plot=False)
+    eva_box = EvaGrids(eva, config, show_plot=True)
     joints = eva_box.get_grid_points(config['grids']['names'])
 
     # Go home before starting
