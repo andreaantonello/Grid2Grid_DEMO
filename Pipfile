@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+numpy = "*"
+evasdk-internal = {git = "https://bitbucket.org/automata_tech/eva_python_internal_sdk.git",ref = "v/4.1.0",editable = true}
+matplotlib = "*"
+progress = "*"
+pyaml = "*"
+
+[requires]
+python_version = "3.8"
