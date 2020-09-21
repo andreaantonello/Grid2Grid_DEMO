@@ -4,11 +4,13 @@ EVA:
   work_radius: 0.6    # Eva's workspace radius [m] - DO NOT CHANGE THIS PARAMETER
   base_plate: 0.132   # Eva's base-plate dimension [m] - DO NOT CHANGE THIS PARAMETER
   comm:
-    host: "0.0.0.0"   # USER DEFINED
-    token: "abcd1234" # USER DEFINED
+#    host: "172.16.16.2"   # USER DEFINED
+#    token: "b18b70c8-f608-4404-825a-ffbb258b5775" # USER DEFINED
+    host: "http://office.automata.tech:4242"   # USER DEFINED
+    token: "05026024ee7fb90a037cd7e76021adc6347566ca" # USER DEFINED
   end_effector:
     payload: 0        # payload [kg] - USER DEFINED
-    length: 80        # length of tool [mm] - USER DEFINED
+    length: 139       # length of tool [mm] - USER DEFINED
     offset:           # ee offset in ee-frame  [m] - USER DEFINED
       - 0
       - 0
@@ -16,10 +18,10 @@ EVA:
   hover_height: 0.1   # elevation of idle z axis wrt to the object [m] - USER DEFINED
   home:               # joints for home position [rad] - USER DEFINED
     - 0
+    - 1.0996
+    - -2.5133
     - 0
-    - 0
-    - 0
-    - 0
+    - -1.7104
     - 0
 
 grids:
@@ -30,25 +32,25 @@ grids:
     A: 'Origin'
     B: 'Target'
   row:            # number of grid rows, [#] - USER DEFINED
-    A: 0
-    B: 0
+    A: 8
+    B: 5
   col:            # number of grid columns, [#] - USER DEFINED
-    A: 0
-    B: 0
+    A: 5
+    B: 8
   row_pitch:      # distance between adjacent rows [mm] - USER DEFINED
-    A: 0
-    B: 0
+    A: 39
+    B: 39
   col_pitch:      # distance between adjacent columns [mm] - USER DEFINED
-    A: 0
-    B: 0
+    A: 39
+    B: 39
   x0:             # grid corner, referred to Eva frame's origin - x coordinate [mm] - USER DEFINED
-    A: 0
-    B: 0
+    A: 222.5009
+    B: 382.5798
   y0:             # grid corner, referred to Eva frame's origin - y coordinate [mm] - USER DEFINED
-    A: 0
-    B: 0
+    A: -367.4311
+    B: -187.4092
   angle:          # grid orientation, referred to Eva frame's origin [deg] - USER DEFINED
-    A: 0
+    A: 180
     B: 0
   angle_pickup:   # additional pick-up angle, [deg] - USER DEFINED
     A: 0
@@ -61,16 +63,16 @@ grids:
     B: 0
   guess:
     A:            # joints guess for origin grid [rad] - USER DEFINED
+      - -1.0263
+      - -0.5166
+      - -2.0385
       - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+      - -0.5882
+      - -1.0263
     B:            # joints guess for target grid [rad] - USER DEFINED
+      - -0.4555
+      - -0.5061
+      - -2.0577
       - 0
-      - 0
-      - 0
-      - 0
-      - 0
-      - 0
+      - -0.5777
+      - -0.4555
