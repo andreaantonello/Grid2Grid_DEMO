@@ -4,18 +4,16 @@ EVA:
   work_radius: 0.6    # Eva's workspace radius [m] - DO NOT CHANGE THIS PARAMETER
   base_plate: 0.132   # Eva's base-plate dimension [m] - DO NOT CHANGE THIS PARAMETER
   comm:
-#    host: "172.16.16.2"   # USER DEFINED
-#    token: "b18b70c8-f608-4404-825a-ffbb258b5775" # USER DEFINED
-    host: "http://office.automata.tech:4242"   # USER DEFINED
-    token: "05026024ee7fb90a037cd7e76021adc6347566ca" # USER DEFINED
+    host: "192.168.1.243"   # USER DEFINED
+    token: "0bdcadea33307dd690e2285195af8dc216bd767d" # USER DEFINED
   end_effector:
     payload: 0        # payload [kg] - USER DEFINED
-    length: 139       # length of tool [mm] - USER DEFINED
+    length: 103      # length of tool [mm] - USER DEFINED
     offset:           # ee offset in ee-frame  [m] - USER DEFINED
       - 0
       - 0
       - 0
-  hover_height: 0.1   # elevation of idle z axis wrt to the object [m] - USER DEFINED
+  hover_height: 0.05   # elevation of idle z axis wrt to the object [m] - USER DEFINED
   home:               # joints for home position [rad] - USER DEFINED
     - 0
     - 1.0996
@@ -38,11 +36,11 @@ grids:
     A: 5
     B: 8
   row_pitch:      # distance between adjacent rows [mm] - USER DEFINED
-    A: 39
-    B: 39
+    A: 37
+    B: 37
   col_pitch:      # distance between adjacent columns [mm] - USER DEFINED
-    A: 39
-    B: 39
+    A: 37
+    B: 37
   x0:             # grid corner, referred to Eva frame's origin - x coordinate [mm] - USER DEFINED
     A: 222.5009
     B: 382.5798
@@ -57,7 +55,7 @@ grids:
     B: 0
   surface:        # surf height of grid, referred to Eva frame's xy plane, [mm] - USER DEFINED
     A: 0
-    B: 0
+    B: 5
   object:         # object thickness, referred to Eva frame's z-axis, [mm] - USER DEFINED
     A: 0
     B: 0

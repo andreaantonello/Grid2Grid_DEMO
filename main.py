@@ -36,7 +36,7 @@ if __name__ == "__main__":
             tool_path_grid_to_grid = {
                 "metadata": {
                     "version": 2,
-                    "default_max_speed": 0.2,
+                    "default_max_speed": 0.7,
                     "next_label_id": 9,
                     "payload": config['EVA']['end_effector']['payload'],
                     "analog_modes": {"i0": "voltage", "i1": "voltage", "o0": "voltage", "o1": "voltage"}
@@ -53,80 +53,31 @@ if __name__ == "__main__":
                 ],
                 "timeline": [
                     {"type": "home", "waypoint_id": 0},
+
                     # Pick up part
                     {"type": "trajectory", "trajectory": "linear", "waypoint_id": 1},
+                    {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 0}, "value": True},
                     {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 1}, "value": True},
-                    {"type": "trajectory", "trajectory": "linear", "time": 4, "waypoint_id": 2},
+                    {"type": "trajectory", "trajectory": "linear", "time": 2, "waypoint_id": 2},
                     {"type": "wait", "condition": {"type": "time", "duration": 0.5}},
                     {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 1},
 
-                    # Verify that part has been picked up and wait. If pickup not successful, trigger alarm
-                    {"type": "if", "branches": [
-                        {"condition": {
-                            "type": "input", "io": {"location": "base", "type": "digital", "index": 2}, "value": 1,
-                            "operator": "equal"
-                        }, "timeline": [
-                            {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 3},
-                             "value": True},  # Trigger alarm
-                            {"type": "wait",
-                             "condition": {"type": "input", "io": {"location": "base", "type": "digital", "index": 2},
-                                           "value": False}},  # Wait for alarm reset
-                            {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 3},
-                             "value": False},  # Stop alarm
-                        ]},
-                    ]},
-
                     # Move to chuck
                     {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 0},
-                    {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 3},
-                    {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 6},
-                    {"type": "trajectory", "trajectory": "linear", "waypoint_id": 7},
-
-                    # Drop down part to chuck
-                    {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 1}, "value": False},
-                    {"type": "wait", "condition": {"type": "time", "duration": 0.5}},
-                    {"type": "trajectory", "trajectory": "linear", "waypoint_id": 6},
-                    {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 3},
-                    {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 0},
-
-                    # Start operation
                     {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 0}, "value": False},
-
-                    # Wait for input to confirm that operation has been performed
-                    {"type": "wait", "condition": {"type": "input", "io": {"location": "base", "type": "digital", "index": 0}, "value": True}},  # Wait for alarm reset
-
-                    {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 3},
-                    {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 6},
-                    {"type": "trajectory", "trajectory": "linear", "waypoint_id": 7},
-                    {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 1}, "value": True},
-                    {"type": "wait", "condition": {"type": "time", "duration": 0.5}},
-                    {"type": "trajectory", "trajectory": "linear", "waypoint_id": 6},
-
-                    # Verify that part has been picked up and wait. If pickup not successful, trigger alarm
-                    {"type": "if", "branches": [
-                        {"condition": {
-                            "type": "input", "io": {"location": "base", "type": "digital", "index": 2}, "value": 1,
-                            "operator": "equal"
-                        }, "timeline": [
-                            {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 3},
-                             "value": True},  # Trigger alarm
-                            {"type": "wait",
-                             "condition": {"type": "input", "io": {"location": "base", "type": "digital", "index": 2},
-                                           "value": False}},  # Wait for alarm reset
-                            {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 3},
-                             "value": False},  # Stop alarm
-                        ]},
-                    ]},
+                    {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 1}, "value": False},
 
                     # Move to drop-off tray
                     {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 3},
                     {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 0},
                     {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 4},
                     {"type": "trajectory", "trajectory": "linear", "waypoint_id": 5},
+
                     # Release part to drop-off tray
-                    {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 0}, "value": False},
+                    {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 2}, "value": True},
                     {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 4},
                     {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 0},
+                    {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 2}, "value": False},
                 ]
             }
 

@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 numpy = "*"
-evasdk-internal = {git = "https://bitbucket.org/automata_tech/eva_python_internal_sdk.git",ref = "v/4.1.0",editable = true}
+evasdk = "~=3.0.0"
 matplotlib = "*"
 progress = "*"
 pyaml = "*"
