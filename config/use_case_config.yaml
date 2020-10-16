@@ -8,12 +8,12 @@ EVA:
     token: "0bdcadea33307dd690e2285195af8dc216bd767d" # USER DEFINED
   end_effector:
     payload: 0        # payload [kg] - USER DEFINED
-    length: 103      # length of tool [mm] - USER DEFINED
+    length: 113      # length of tool [mm] - USER DEFINED
     offset:           # ee offset in ee-frame  [m] - USER DEFINED
       - 0
       - 0
       - 0
-  hover_height: 0.05   # elevation of idle z axis wrt to the object [m] - USER DEFINED
+  hover_height: 0.03   # elevation of idle z axis wrt to the object [m] - USER DEFINED
   home:               # joints for home position [rad] - USER DEFINED
     - 0
     - 1.0996

@@ -36,7 +36,7 @@ if __name__ == "__main__":
             tool_path_grid_to_grid = {
                 "metadata": {
                     "version": 2,
-                    "default_max_speed": 0.7,
+                    "default_max_speed": 0.9,
                     "next_label_id": 9,
                     "payload": config['EVA']['end_effector']['payload'],
                     "analog_modes": {"i0": "voltage", "i1": "voltage", "o0": "voltage", "o1": "voltage"}
@@ -55,10 +55,10 @@ if __name__ == "__main__":
                     {"type": "home", "waypoint_id": 0},
 
                     # Pick up part
-                    {"type": "trajectory", "trajectory": "linear", "waypoint_id": 1},
+                    {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 1},
                     {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 0}, "value": True},
                     {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 1}, "value": True},
-                    {"type": "trajectory", "trajectory": "linear", "time": 2, "waypoint_id": 2},
+                    {"type": "trajectory", "trajectory": "joint_space", "time": 2, "waypoint_id": 2},
                     {"type": "wait", "condition": {"type": "time", "duration": 0.5}},
                     {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 1},
 
@@ -71,7 +71,7 @@ if __name__ == "__main__":
                     {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 3},
                     {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 0},
                     {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 4},
-                    {"type": "trajectory", "trajectory": "linear", "waypoint_id": 5},
+                    {"type": "trajectory", "trajectory": "joint_space", "waypoint_id": 5},
 
                     # Release part to drop-off tray
                     {"type": "output-set", "io": {"location": "base", "type": "digital", "index": 2}, "value": True},
@@ -82,6 +82,7 @@ if __name__ == "__main__":
             }
 
             with eva.lock():
+                print(f'Counter is {counter}')
                 eva.control_wait_for_ready()
                 eva.toolpaths_use(tool_path_grid_to_grid)
                 eva.control_run(loop=1, mode="automatic")
